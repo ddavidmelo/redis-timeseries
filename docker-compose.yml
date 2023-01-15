@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  redis:
+    container_name: "redis"
+    image: redislabs/redistimeseries
+    ports:
+      - 6379:6379
+  
+  redisinsight:
+    container_name: "redisinsight"
+    image: redislabs/redisinsight:latest
+    ports:
+      - 8001:8001
+    volumes: # chown -R 1001 redis/redisinsight
+      - ./redis/redisinsight:/db
+
+  grafana:
+    container_name: "grafana"
+    image: grafana/grafana:latest
+    ports:
+      - 127.0.0.1:3000:3000
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_INSTALL_PLUGINS=redis-datasource,redis-app
+      - GF_USERS_DEFAULT_THEME=light
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning

@@ -1,0 +1,14 @@
+[general]
+aggregation_bucket_duration = '1m'
+log_disable_colors = false
+log_disable_timestamp = false
+log_level = 3
+pub_rate = '1s'
+retention_aggregation_duration = '24h'
+retention_sample_duration = '15m'
+version = 'v.0.1.1'
+
+[redis]
+host = 'localhost'
+password = ''
+port = '6379'

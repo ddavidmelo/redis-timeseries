@@ -1,0 +1,391 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 2,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 26,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Keys",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "redis-datasource",
+        "uid": "$redis"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 73,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 14,
+        "x": 0,
+        "y": 1
+      },
+      "id": 27,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.2",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "command": "ts.range",
+          "datasource": {
+            "uid": "$redis"
+          },
+          "filter": "metric=NetworkSending",
+          "keyName": "${keys}",
+          "legend": "",
+          "query": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "streaming": false,
+          "streamingCapacity": 1000,
+          "streamingDataType": "TimeSeries",
+          "streamingInterval": 200,
+          "type": "timeSeries",
+          "value": ""
+        }
+      ],
+      "title": "Live Stream - ${keys}",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "value": ""
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "redis-datasource",
+        "uid": "${redis}"
+      },
+      "gridPos": {
+        "h": 18,
+        "w": 10,
+        "x": 14,
+        "y": 1
+      },
+      "id": 17,
+      "options": {
+        "help": {
+          "complexity": "O(N) with N being the number of keys in the database, under the assumption that the key names       in the database and the given pattern have limited length.",
+          "since": "1.0.0",
+          "summary": "Find all keys matching the given pattern.",
+          "syntax": "KEYS pattern",
+          "url": "https://redis.io/commands/keys",
+          "warning": "Consider KEYS as a command that should only be used in production environments with extreme care. This command is       intended for debugging and special operations, such as changing your keyspace layout."
+        },
+        "output": "",
+        "query": "",
+        "raw": false
+      },
+      "pluginVersion": "7.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "redis-datasource",
+            "uid": "${redis}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Redis CLI",
+      "type": "redis-cli-panel"
+    },
+    {
+      "datasource": {
+        "type": "redis-datasource",
+        "uid": "$redis"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 73,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 3,
+        "y": 9
+      },
+      "id": 20,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.2",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "command": "ts.get",
+          "datasource": {
+            "uid": "$redis"
+          },
+          "filter": "metric=NetworkSending",
+          "keyName": "${keys}",
+          "legend": "",
+          "query": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "streaming": true,
+          "streamingCapacity": 1000,
+          "streamingDataType": "TimeSeries",
+          "streamingInterval": 200,
+          "type": "timeSeries",
+          "value": ""
+        }
+      ],
+      "timeFrom": "5m",
+      "title": "Live Stream - ${keys}",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "value": ""
+            }
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "Redis",
+          "value": "Redis"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Redis",
+        "multi": false,
+        "name": "redis",
+        "options": [],
+        "query": "redis-datasource",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "system:CPUPercentage:0",
+          "value": "system:CPUPercentage:0"
+        },
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "$redis"
+        },
+        "definition": "KEYS * ",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Keys",
+        "multi": false,
+        "name": "keys",
+        "options": [],
+        "query": "KEYS * ",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Redis Time Series",
+  "uid": "s8KgKkXMk",
+  "version": 8,
+  "weekStart": ""
+}
