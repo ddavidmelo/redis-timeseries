@@ -1,9 +1,18 @@
+
+node_modules
+/ui/dist
+/redis
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
+
+# local env files
+.env.local
+.env.*.local
 
 # Test binary, built with `go test -c`
 *.test

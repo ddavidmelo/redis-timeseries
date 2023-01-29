@@ -1,8 +1,10 @@
 [general]
 aggregation_bucket_duration = '1m'
+grpc_port = 50051
+http_port = 8081
 log_disable_colors = false
 log_disable_timestamp = false
-log_level = 3
+log_level = 2
 pub_rate = '1s'
 retention_aggregation_duration = '24h'
 retention_sample_duration = '15m'

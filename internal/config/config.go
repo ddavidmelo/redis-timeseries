@@ -24,6 +24,8 @@ type General struct {
 	RetentionSampleDuration      time.Duration `mapstructure:"retention_sample_duration"`
 	RetentionAggregationDuration time.Duration `mapstructure:"retention_aggregation_duration"`
 	AggregationBucketDuration    time.Duration `mapstructure:"aggregation_bucket_duration"`
+	HTTPPort                     int           `mapstructure:"HTTP_port"`
+	GRPCPort                     int           `mapstructure:"GRPC_port"`
 }
 
 type Redis struct {
@@ -46,6 +48,8 @@ func init() {
 	viper.SetDefault("general.retention_sample_duration", "1m")
 	viper.SetDefault("general.retention_aggregation_duration", "5m")
 	viper.SetDefault("general.aggregation_bucket_duration", "1m")
+	viper.SetDefault("general.HTTP_port", 8081)
+	viper.SetDefault("general.GRPC_port", 50051)
 
 	viper.SetDefault("redis.host", "localhost")
 	viper.SetDefault("redis.port", "6379")
