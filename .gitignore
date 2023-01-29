@@ -2,6 +2,7 @@
 node_modules
 /ui/dist
 /redis
+/grafana
 
 # Binaries for programs and plugins
 *.exe
