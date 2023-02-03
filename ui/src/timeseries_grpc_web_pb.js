@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 /**
  * @fileoverview gRPC-Web generated client stub for timeseries
  * @enhanceable
@@ -79,16 +78,16 @@ proto.timeseries.TimeSeriesServicePromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.timeseries.TimeSerieRequest,
+ *   !proto.timeseries.TimeSeriesRequest,
  *   !proto.timeseries.TimeSeries>}
  */
 const methodDescriptor_TimeSeriesService_GetTimeSeries = new grpc.web.MethodDescriptor(
   '/timeseries.TimeSeriesService/GetTimeSeries',
   grpc.web.MethodType.UNARY,
-  proto.timeseries.TimeSerieRequest,
+  proto.timeseries.TimeSeriesRequest,
   proto.timeseries.TimeSeries,
   /**
-   * @param {!proto.timeseries.TimeSerieRequest} request
+   * @param {!proto.timeseries.TimeSeriesRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -99,7 +98,7 @@ const methodDescriptor_TimeSeriesService_GetTimeSeries = new grpc.web.MethodDesc
 
 
 /**
- * @param {!proto.timeseries.TimeSerieRequest} request The
+ * @param {!proto.timeseries.TimeSeriesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
@@ -120,7 +119,7 @@ proto.timeseries.TimeSeriesServiceClient.prototype.getTimeSeries =
 
 
 /**
- * @param {!proto.timeseries.TimeSerieRequest} request The
+ * @param {!proto.timeseries.TimeSeriesRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata

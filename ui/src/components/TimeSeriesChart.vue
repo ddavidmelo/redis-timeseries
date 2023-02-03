@@ -28,7 +28,7 @@
   
 <script>
 import VueApexCharts from "vue3-apexcharts";
-import { TimeSerieRequest } from "@/timeseries_pb";
+import { TimeSeriesRequest } from "@/timeseries_pb";
 import { TimeSeriesServiceClient } from "@/timeseries_grpc_web_pb";
 
 export default {
@@ -148,7 +148,7 @@ export default {
             var host = window.location.protocol + "//" + window.location.host;
             const client = new TimeSeriesServiceClient(host, null, null);
 
-            let request = new TimeSerieRequest();
+            let request = new TimeSeriesRequest();
             request.setFromTimestamp(fromTimestamp);
             request.setToTimestamp(Date.now());
             request.setKey(this.redisKey);

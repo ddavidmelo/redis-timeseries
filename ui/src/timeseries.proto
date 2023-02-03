@@ -11,12 +11,12 @@ message TimeSeries {
   repeated DataPoint data = 2;
 }
 
-message TimeSerieRequest {
+message TimeSeriesRequest {
   string key = 1;
   int64 from_timestamp = 2;
   int64 to_timestamp = 3;
 }
 
 service TimeSeriesService {
-  rpc GetTimeSeries(TimeSerieRequest) returns (TimeSeries);
+  rpc GetTimeSeries(TimeSeriesRequest) returns (TimeSeries);
 }

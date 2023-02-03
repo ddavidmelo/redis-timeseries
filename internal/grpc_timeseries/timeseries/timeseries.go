@@ -12,14 +12,10 @@ import (
 type Server struct {
 }
 
-func (s *Server) GetTimeSeries(ctx context.Context, in *TimeSerieRequest) (*TimeSeries, error) {
+func (s *Server) GetTimeSeries(ctx context.Context, in *TimeSeriesRequest) (*TimeSeries, error) {
 	log.Printf("Receive message from %d to %d", in.FromTimestamp, in.ToTimestamp)
 	var dataPoint *DataPoint
 	var dataPoints []*DataPoint
-	// dataPoint = &DataPoint{Timestamp: in.FromTimestamp, Value: 1111111111111}
-	// dataPoints = append(dataPoints, dataPoint)
-	// dataPoint = &DataPoint{Timestamp: in.ToTimestamp, Value: 1111111111112}
-	// dataPoints = append(dataPoints, dataPoint)
 
 	datapoints, err := storage.RedisRange(redis.DB().RedisTS, in.Key, in.FromTimestamp, in.ToTimestamp)
 	if err != nil {
