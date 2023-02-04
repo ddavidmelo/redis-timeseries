@@ -7,12 +7,12 @@ import (
 	"google.golang.org/grpc"
 )
 
-type Handler struct {
-	GrpcServer     *grpc.Server
-	GrpcwebHandler *grpcweb.WrappedGrpcServer
+type GrpcServer struct {
+	GrpcServer    *grpc.Server
+	GrpcWebServer *grpcweb.WrappedGrpcServer
 }
 
-func Grpc() *Handler {
+func Grpc() *GrpcServer {
 	grpcServer := grpc.NewServer()
 
 	s := timeseries.Server{}
@@ -28,8 +28,8 @@ func Grpc() *Handler {
 		grpcweb.WithOriginFunc(func(origin string) bool { return true }),
 	)
 
-	return &Handler{
-		GrpcServer:     grpcServer,
-		GrpcwebHandler: grpcWebServer,
+	return &GrpcServer{
+		GrpcServer:    grpcServer,
+		GrpcWebServer: grpcWebServer,
 	}
 }

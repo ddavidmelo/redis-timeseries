@@ -34,7 +34,7 @@ func main() {
 	wg.Add(1)
 
 	grpsTimeSeries := grpc_timeseries.Grpc()
-	router := router.InitRouter(grpsTimeSeries.GrpcwebHandler)
+	router := router.InitRouter(grpsTimeSeries.GrpcWebServer)
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", grpcPort))
 	if err != nil {
 		log.Fatalf("Fail to listen: %v", err)
